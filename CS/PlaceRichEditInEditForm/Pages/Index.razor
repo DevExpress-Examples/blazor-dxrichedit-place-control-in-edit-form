@@ -1,0 +1,69 @@
+﻿@page "/"
+@using PlaceRichEditInEditForm.Data
+
+<style>
+   .rich-style {
+       height: 200px;
+   }
+   .button-style {
+       width: 100px;
+   }
+</style>
+
+<EditForm Model="@SampleData.Employees" Context="EditFormContext">
+    <DxFormLayout CaptionPosition="CaptionPosition.Vertical">
+        <DxFormLayoutGroup Caption="Employee Details">
+            <DxFormLayoutItem Caption="Name" ColSpanMd="4" ColSpanLg="3">
+                <DxTextBox @bind-Text="@SampleData.Employees[employeeID].Name" />
+            </DxFormLayoutItem>
+            <DxFormLayoutItem Caption="Address" ColSpanMd="4" ColSpanLg="3">
+                <DxTextBox @bind-Text="@SampleData.Employees[employeeID].Address" />
+            </DxFormLayoutItem>
+            <DxFormLayoutItem Caption="Phone" ColSpanMd="4" ColSpanLg="3">
+                <DxTextBox @bind-Text="@SampleData.Employees[employeeID].Phone" />
+            </DxFormLayoutItem>
+            <DxFormLayoutItem ColSpanMd="12">
+                <Template Context="RichEditContext">
+                    <div>
+                        <DxRichEdit @ref="@richEdit"
+                            @bind-DocumentContent="@documentContent"
+                            ViewType=ViewType.Simple
+                            BarMode=BarMode.Toolbar
+                            CssClass="rich-style" />
+                    </div>
+                </Template>
+            </DxFormLayoutItem>
+            <DxFormLayoutItem Context="FormLayoutButtonsContext" ColSpanMd="12" ColSpanLg="12">
+                 <DxButton Text="Previous" RenderStyle="ButtonRenderStyle.Link" CssClass="button-style" Click=@ShowPrevious Enabled="@(employeeID > 0 ? true : false)"/>               
+                 <DxButton Text="Save" CssClass="button-style" Click=@SaveData/>
+                 <DxButton Text="Next" RenderStyle="ButtonRenderStyle.Link" CssClass="button-style" Click=@ShowNext Enabled="@(employeeID < SampleData.Employees.Count() - 1 ? true : false)"/>
+            </DxFormLayoutItem>
+        </DxFormLayoutGroup>
+    </DxFormLayout>
+</EditForm>
+
+@code {
+    int employeeID { get; set; } = 0;
+    DxRichEdit richEdit { get; set; }
+    byte[] documentContent { get; set; }
+
+    protected override async Task OnInitializedAsync() {
+        documentContent = await File.ReadAllBytesAsync(SampleData.Employees[employeeID].Notes);
+        await base.OnInitializedAsync(); 
+    }
+
+    async Task ShowNext() {
+        employeeID++;
+        documentContent = await File.ReadAllBytesAsync(SampleData.Employees[employeeID].Notes);
+    }
+
+    async Task ShowPrevious() {
+        employeeID--;
+        documentContent = await File.ReadAllBytesAsync(SampleData.Employees[employeeID].Notes);
+    }
+
+    async Task SaveData() {
+        await richEdit.SaveDocumentAsync();
+        File.WriteAllBytes(SampleData.Employees[employeeID].Notes, documentContent);
+    }
+}
