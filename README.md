@@ -2,9 +2,11 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1108948)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# Rich Edit for Blazor - How to bind the control to a document
+# Rich Edit for Blazor - How to bind the component to a document
 
-This example demonstrates how to place the [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/rich-text-editor) component inside the [Edit Form](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform?view=aspnetcore-6.0) and bind the component to a document. The edit form is bound to a data source that has a field with document paths. The Rich Text Editor displays the current document's content and saves changes back to the document when a user clicks the **Save** button.
+You can place the [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/rich-text-editor) component inside the [Edit Form](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform?view=aspnetcore-6.0) and bind the component to a document. 
+
+In this example, the edit form is bound to a data source and has the **Next** and **Previous** buttons that allows users to navigate through data records. The component displays the document that corresponds to the current data record and saves changes back to the document when a user clicks the **Save** button.
 
 ![Blazor DxRichEdit bind component to a document](/images/place-rich-in-edit-form.png)
 
