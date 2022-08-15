@@ -3,28 +3,45 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1108948)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# Product/Platform - Task
+# Rich Edit for Blazor - How to place the control inside the EditForm
 
-This is the repository template for creating new examples. Describe the solved task here.
+This example demonstrates how to place the [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/rich-text-editor) component inside the [Edit Form](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform?view=aspnetcore-6.0) and bind the component to an external data source.
 
-Put a screenshot that illustrates the result here.
+![Blazor DxRichEdit export a document to the HTML](/images/export-to-html.png)
 
-Then, add implementation details (steps, code snippets, and other technical information in a free form), or add a link to an existing document with implementation details. 
+## Overview
+
+Place the [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/rich-text-editor) component inside the [Edit Form](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform?view=aspnetcore-6.0) to receive and validate user input. Assign a data source to the edit form's [EditContext](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform.editcontext?view=aspnetcore-6.0#microsoft-aspnetcore-components-forms-editform-editcontext) property to bind this form to data. Depending on the data field's content, use one of the following aproaches to bind the component to a document.
+
+### The field contains a path to a document file
+
+Perform the following actions to work with this document in the Rich Text Editor:
+
+1. Assign the document's format to the [DocumentFormat](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentFormat) property.
+2. Assign the file's content as a byte array to the [DocumentContent](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContent) property to open the document.
+3. Write the [DocumentContent](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContent) property value back to the file to save changes.
+
+If the Rich Text Editor does not support the document's format, use hird-party server libraries (for instance, [DevExpress Office File API](https://docs.devexpress.com/OfficeFileAPI/17488/word-processing-document-api)) to convert the document from its original format to a [supported format](https://docs.devexpress.com/Blazor/403344/rich-edit/document-management#document-formats) and vice versa.
+
+### The field contains a document
+
+The Rich Text Editor allows you to bind its content directly to a field that stores a document in a [supported format](https://docs.devexpress.com/Blazor/403344/rich-edit/document-management#document-formats). To do this, follow the steps below:
+
+1. Assign the document's format to the [DocumentFormat](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentFormat) property.
+2. [Bind](https://docs.devexpress.com/Blazor/402330/common-concepts/two-way-data-binding) the [DocumentContent](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContent) property to the data source field.
+
+The control updates the bound field value each time the [DocumentContentChanged](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContentChanged) event occurs. Call the [SaveDocumentAsync](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.SaveDocumentAsync(System.Threading.CancellationToken)) method to rase this event manually.
 
 ## Files to Look At
 
-- link.cs (VB: link.vb)
-- link.js
-- ...
+- [Index.razor](./CS/PlaceRichEditInEditForm/Pages/Index.razor)
 
 ## Documentation
 
-- link
-- link
-- ...
-
+- [Document Management in the Rich Text Editor](https://docs.devexpress.com/Blazor/403344/rich-edit/document-management)
+- [Rich Text Editor Examples](https://docs.devexpress.com/Blazor/403343/rich-edit/examples)
+ 
 ## More Examples
 
-- link
-- link
-- ...
+- [Rich Edit for Blazor - How to check whether the document is empty](https://github.com/DevExpress-Examples/blazor-dxrichedit-check-if-document-is-empty)
+- [Rich Edit for Blazor - How to export a document to the HTML](https://github.com/DevExpress-Examples/blazor-dxrichedit-export-to-html)
