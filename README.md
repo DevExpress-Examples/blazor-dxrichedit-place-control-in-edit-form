@@ -4,26 +4,26 @@
 <!-- default badges end -->
 # Rich Edit for Blazor - How to use the component inside an EditForm
 
-You can place various [DexExpress Blazor components](https://docs.devexpress.com/Blazor/400725/blazor-components) inside an [Edit Form](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-6.0) to receive and validate user input. In this example, the edit form is bound to a data source and has the following components:
+You can place various [DexExpress Blazor components](https://docs.devexpress.com/Blazor/400725/blazor-components) inside an [Edit Form](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-6.0) to receive and validate user input. In this example, the edit form is bound to a data source and includes the following components:
 
 * [Text boxes](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxTextBox)  
 The **Name**, **Address**, and **Phone** text boxes are bound to the corresponding data fields.
 
 * [Rich Text Editor](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit)  
-Recieves a path to a document from the **Notes** field and displays the document.
+Displays the document whose path is specified in the **Notes** field.
 
 * [Buttons](https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxButton)  
-The **Next** and **Previous** buttons allows users to navigate through data records. The **Save** button saves changes to the bound data source.
+The **Next** and **Previous** buttons allow users to navigate through data records. The **Save** button saves changes to the bound data source.
 
 ![Blazor DxRichEdit bind component to a document](/images/place-rich-in-edit-form.png)
 
 ## Overview
 
-You can place the [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/rich-text-editor) component inside the [Edit Form](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform?view=aspnetcore-6.0) and bind the compoment's content to a data field. To do the latter, use one of the following aproaches depending on the field's content.
+You can place a [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/rich-text-editor) component inside an [Edit Form](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.forms.editform?view=aspnetcore-6.0). To bind the component's content to a data field, use one of the following approaches.
 
 ### The field contains a path to a document
 
-Perform the following actions to work with this document in the Rich Text Editor:
+Follow the steps below:
 
 1. Assign the document's format to the [DocumentFormat](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentFormat) property.
 2. Assign the document's content as a byte array to the [DocumentContent](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContent) property to open this document in the Rich Text Editor.
@@ -38,7 +38,7 @@ The Rich Text Editor allows you to bind its content directly to a field that sto
 1. Assign the document's format to the [DocumentFormat](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentFormat) property.
 2. [Bind](https://docs.devexpress.com/Blazor/402330/common-concepts/two-way-data-binding) the [DocumentContent](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContent) property to the field.
 
-The control updates the bound field value each time the [DocumentContentChanged](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContentChanged) event occurs. Call the [SaveDocumentAsync](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.SaveDocumentAsync(System.Threading.CancellationToken)) method to rase this event manually.
+The control updates the bound field value each time the [DocumentContentChanged](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContentChanged) event occurs. Call the [SaveDocumentAsync](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.SaveDocumentAsync(System.Threading.CancellationToken)) method to raise this event on-demand.
 
 ## Files to Look At
 
