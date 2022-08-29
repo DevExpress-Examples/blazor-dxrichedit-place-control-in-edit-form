@@ -26,7 +26,7 @@ You can place a [Rich Text Editor](https://docs.devexpress.com/Blazor/401891/ric
 Follow the steps below:
 
 1. Assign the document's format to the [DocumentFormat](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentFormat) property.
-2. Assign the document's content as a byte array to the [DocumentContent](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContent) property to open this document in the Rich Text Editor.
+2. Assign the document's content as a byte array to the [DocumentContent](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContent) property to open this document in the Rich Text Editor. In this example, the component updates its content when a user clicks the **Next** or **Previous* button to switch between data records.
 3. Write the [DocumentContent](https://docs.devexpress.com/Blazor/DevExpress.Blazor.RichEdit.DxRichEdit.DocumentContent) property value back to the document to save changes.
 
 If the Rich Text Editor does not support the document's format, use third-party server libraries (for instance, [DevExpress Office File API](https://docs.devexpress.com/OfficeFileAPI/17488/word-processing-document-api)) to convert the document from its original format to a [supported format](https://docs.devexpress.com/Blazor/403344/rich-edit/document-management#document-formats) and vice versa.
