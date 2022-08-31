@@ -55,4 +55,4 @@ The control updates the bound field value each time the [DocumentContentChanged]
 ## More Examples
 
 - [Rich Edit for Blazor - How to check whether the document is empty](https://github.com/DevExpress-Examples/blazor-dxrichedit-check-if-document-is-empty)
-- [Rich Edit for Blazor - How to export a document to HTML](https://github.com/DevExpress-Examples/blazor-dxrichedit-export-to-html)
+- [Rich Edit for Blazor - How to export a document to a file in HTML format](https://github.com/DevExpress-Examples/blazor-dxrichedit-export-to-html)
