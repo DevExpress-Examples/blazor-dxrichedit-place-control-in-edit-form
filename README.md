@@ -1,9 +1,3 @@
-<!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/524045765/24.2.1%2B)
-[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1108948)
-[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
-[![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
-<!-- default badges end -->
 # Blazor Rich Text Editor - How to use the component inside an EditForm
 
 You can place various [DexExpress Blazor components](https://docs.devexpress.com/Blazor/400725/blazor-components) inside an [Edit Form](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-6.0) to process/validate user input. In this example, an edit form is bound to a data source and includes the following components:
@@ -44,9 +38,9 @@ The control updates bound field values each time the [DocumentContentChanged](ht
 
 ## Files to Look At
 
-- [Index.razor](./CS/PlaceRichEditInEditForm/Pages/Index.razor)
-- [Employee.cs](./CS/PlaceRichEditInEditForm/Data/Employee.cs)
-- [SampleData.cs](./CS/PlaceRichEditInEditForm/Data/SampleData.cs)
+- [Index.razor](./CS/Components/Pages/Index.razor)
+- [Employee.cs](./CS/Components/Data/Employee.cs)
+- [SampleData.cs](./CS/Components/Data/SampleData.cs)
 
 ## Documentation
 
@@ -55,7 +49,7 @@ The control updates bound field values each time the [DocumentContentChanged](ht
  
 ## More Examples
 
-- [Blazor Rich Text Editor - How to export a document to a file (HTML format)](https://github.com/DevExpress-Examples/blazor-dxrichedit-export-to-html)
+- [Blazor Rich Text Editor - How to export a document to a file (DOC format)](https://github.com/DevExpress-Examples/blazor-dxrichedit-export-to-doc)
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
